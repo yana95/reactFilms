@@ -1,15 +1,12 @@
 import React from 'react';
-import { Item } from './components/Item';
+import ReactDom from 'react-dom';
 import { Dropdown } from './components/Dropdown';
+import { Item } from './components/Item';
 
-export default class App extends React.Component {
-
-    render() {
-        return (
-            <div>
-                <Item />
-                <Dropdown />
-            </div>
-        )
-    }
-}
+ReactDom.render(
+    <div>
+        <Item />
+        <Dropdown />
+    </div>,
+    document.getElementById('app')
+)

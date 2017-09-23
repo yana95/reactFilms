@@ -1,51 +1,56 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 
-    context: path.join(__dirname, 'src'),
+    context: path.resolve(__dirname, 'src'),
 
     entry: {
-        shop: [
-            'react-hot-loader/patch',
-            'webpack-dev-server/client?http::/localhost:3000',
-            './index.jsx',
-        ]
+      home: './App'
     },
 
     output: {
-        path: path.join(__dirname, "built"),
         filename: '[name].js',
+        path:  path.resolve(__dirname, 'built'),
     },
 
     resolve: {
         extensions: ['.js', '.jsx']
     },
 
-    devServer: {
-        historyApiFallback: true,
-        hot: true,
-        port: 3000
-    },
+    devtool: 'eval',
 
     module: {
         rules: [{
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader', 'sass-loader']
+            })
+        },
+        {
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            use: [
-                'babel-loader',
-            ],
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    plugins: ["transform-react-jsx"],
+                    presets: ['env']
+                }
+            }
         }]
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
             title: 'Test',
             hash: true,
             template: './index.html'
         }),
-    ],
+        new ExtractTextPlugin({
+            filename: 'style.scss',
+            allChunks: true
+        })
+    ]
 };

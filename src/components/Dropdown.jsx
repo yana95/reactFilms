@@ -14,7 +14,7 @@ export class Dropdown extends React.Component {
         return (
             <div>
                 <div onClick={() => this.setState({ isOpened: !this.state.isOpened })}>Switch</div>
-                {this.state.isOpened && <div>asd</div>}
+                {this.state.isOpened && <div>Content</div>}
             </div>
         )
     }
