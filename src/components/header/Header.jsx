@@ -2,10 +2,47 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 class Header extends React.Component{
+	constructor(props, context){
+		super(props, context);
+		this.state = {
+			title: true,
+			director: false
+		};
+		console.log(this.state);
+	}
+
+	changeSearchType(arg){
+		if(!this.state[arg]){
+			this.setState({
+				title: !this.state.title,
+				director: !this.state.director
+			});
+		}
+	}
+
+	search(){
+		console.log('search');
+	}
 
 	render(){
+		var title = (this.state.title)? 'active': '';
+		var director = (this.state.director)? 'active': '';
 		return(
-			<p>header</p>
+			<div className = "wrapper afisha">
+				<div className="header">
+					<div className="search">
+						<h1>netflixroulette</h1>
+						<h2>Find your movie</h2>
+						<input type='text' placeholder="Enter film title"/>
+						<div className="type">
+							<p>Search by</p>
+							<button className={title} onClick={this.changeSearchType.bind(this,'title')}>Title</button>
+							<button className={director} onClick={this.changeSearchType.bind(this,'director')}>Director</button>
+						</div>
+						<button className="search-btn" onClick={this.search.bind(this)}>Search</button>
+					</div>
+				</div>
+			</div>
 		);
 		
 	}

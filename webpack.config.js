@@ -52,7 +52,7 @@ module.exports = {
             }
         },
         {
-            test: /\.(ttf|eot|svg|woff|png|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            test: /\.(ttf|eot|svg|woff|png|jpg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             loader: "file-loader",
             options: {
                 name: '[path][name].[ext]?[hash]'

@@ -1,0 +1,36 @@
+.results-header{
+	padding: 10px 40px;
+	background: #ddd;
+	overflow: hidden;
+	font-family: Arial;
+	p{
+		margin: 0;
+		color: black;
+		font-size:14px;
+		font-weight: bold;
+		display: inline;
+	}
+	.sort{
+		float: right;
+		p{
+			margin-right: 10px;
+		}
+		ul{
+			font-size:14px;
+			display: inline;
+			padding: 0;
+			font-weight: bold;
+		}
+		li{
+			display: inline;
+			margin: 0 7px;
+			cursor: pointer;
+			&.active{
+				color: #f55263;
+			}
+			&:hover{
+				color: #3f669f;
+			}
+		}
+	}
+}
