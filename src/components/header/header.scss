@@ -6,8 +6,6 @@
 		height: 250px;
 	}
 	.header{
-		content: '';
-	    display: block;
 	    position: relative;
 	    background: rgba(0, 0, 0, 0.87);
 	    height: 100%;
@@ -16,12 +14,6 @@
     	.search{
     		width: 600px;
 			margin: 0 auto;
-			h1{
-				color: #f55263;
-			    margin: 0;
-			    font-family: Arial;
-			    font-size: 20px;
-			}
 			h2{
 				margin-top: 50px;
 				margin-bottom: 10px;

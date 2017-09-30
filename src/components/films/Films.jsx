@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Film from './../film/Film.jsx';
+import Film from './../film/Film';
 
 class Films extends React.Component{
 	constructor(props, context){
@@ -12,7 +12,7 @@ class Films extends React.Component{
 				rating: false
 			}
 		};
-		console.log(this.state);
+		this.sort = this.sort.bind(this);
 	}
 
 	changeSortType(arg){
@@ -27,11 +27,9 @@ class Films extends React.Component{
 	}
 
 	sort(){
-	alert();
-		var films = this.state.films.map(item => function(){
-			return <Film info = {item} />
+		var films = this.state.films.map(item => {
+			return <Film key={item.title} film = {item}/>;
 		});
-		console.log(films);
 		return films;
 	}
 

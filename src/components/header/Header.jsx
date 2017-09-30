@@ -31,7 +31,7 @@ class Header extends React.Component{
 			<div className = "wrapper afisha">
 				<div className="header">
 					<div className="search">
-						<h1>netflixroulette</h1>
+						<h1 className = 'logo' >netflixroulette</h1>
 						<h2>Find your movie</h2>
 						<input type='text' placeholder="Enter film title"/>
 						<div className="type">
