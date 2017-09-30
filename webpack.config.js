@@ -7,7 +7,8 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
 
     entry: {
-      home: './App'
+      home: './App',
+      styles: './styles.scss'
     },
 
     output: {
@@ -20,6 +21,16 @@ module.exports = {
     },
 
     devtool: 'eval',
+
+    devServer: {
+        proxy: {
+            '/': {
+                target: 'http://localhost:3000',
+                secure: false
+            }
+        },
+        port: 3002
+    },
 
     module: {
         rules: [{
@@ -39,8 +50,17 @@ module.exports = {
                     presets: ['env']
                 }
             }
+        },
+        {
+            test: /\.(ttf|eot|svg|woff|png|jpg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: "file-loader",
+            options: {
+                name: '[path][name].[ext]?[hash]'
+            }
         }]
     },
+
+    watch: true,
 
     plugins: [
         new HtmlWebpackPlugin({
@@ -49,7 +69,7 @@ module.exports = {
             template: './index.html'
         }),
         new ExtractTextPlugin({
-            filename: 'style.scss',
+            filename: 'style.css',
             allChunks: true
         })
     ]

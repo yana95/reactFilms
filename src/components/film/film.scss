@@ -1,0 +1,39 @@
+.film{
+	margin: 0 14px;
+    display: inline-block;
+    width: 220px;
+	&::before{
+		content: '';
+		background: url('./images/notebookImg.jpeg');
+		width: 220px;
+		height: 300px;
+		display: block;
+		background-size: cover;
+	}
+	.info{
+		padding: 5px;
+		font-family: Arial;
+		.release {
+			display: inline;
+		    border: 1px solid grey;
+		    font-weight: bolder;
+		    padding: 1px 6px;
+		    font-size: 12px;
+		    width: 45px;
+		    box-sizing: border-box;
+		    text-align: center;
+		    float: right;
+		}
+		.title{
+			text-transform: uppercase;
+			font-weight: bold;
+    		font-size: 13px;
+		    margin: 0;
+		}
+		.type{
+			margin: 5px 0;
+		    color: #9E9E9E;
+		    font-size: 12px;
+		}
+	}
+}

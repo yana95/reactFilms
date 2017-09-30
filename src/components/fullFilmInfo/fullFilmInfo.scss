@@ -1,0 +1,75 @@
+.wrapper{
+	&.afisha{
+		height: auto;
+	}
+	.full-info{
+		background: rgba(0, 0, 0, 0.87);
+		height: 100%;
+		padding: 30px 50px;
+		.logo{
+			margin-left: 50px;
+			float: left;
+		}
+		.search{
+			float: right;
+			padding: 5px 20px;
+			color: rgb(245, 82, 99);
+			font-family: Arial;
+			text-transform: uppercase;
+			background: white;
+			border-radius: 5px;
+			font-size: 12px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		.info {
+			margin-top: 50px;
+			font-family: Arial;
+			.cover{
+				float: left;
+				margin-right: 30px;
+				img{
+					width: 200px;
+				}
+			}
+			h1{
+				color: rgb(245, 82, 99);
+				display: inline;
+				font-size: 22px;
+				span{
+					margin-left: 15px;
+					font-size: 16px;
+				    display: inline-block;
+				    color: #327d5b;
+				    font-weight: lighter;
+				    border: 1px solid #327d5b;
+				    border-radius: 50%;
+				    width: 25px;
+				    line-height: 25px;
+				    padding: 5px;
+				    text-align: center;
+				}
+			}
+			.duration{
+				color: #E0E0E0;
+			    font-weight: 600;
+			    span{
+			    	margin-right: 20px;
+			    }
+			}
+			.description{
+				color: #9E9E9E;
+				line-height: 22px;
+			}
+			.cast{
+				color: #9E9E9E;
+				font-size: 12px;
+			}
+		}
+
+	}
+	.results{
+		padding: 35px 25px;
+		background: white;
+	}
+}
