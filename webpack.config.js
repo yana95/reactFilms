@@ -29,7 +29,7 @@ module.exports = {
                 secure: false
             }
         },
-        port: 3002
+        port: 3000
     },
 
     module: {

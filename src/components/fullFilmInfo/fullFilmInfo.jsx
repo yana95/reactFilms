@@ -1,13 +1,14 @@
 import React from 'react';
+import notebookImg from './../../images/notebookImg.jpeg';
 function FullFilmInfo (props){
 	return (
 		<div className = 'wrapper afisha'>
 			<div className = 'full-info' >
 				<span className = 'logo' >netflixroulette</span>
-				<a className = 'search'> Search </a>
+				<a className = 'search' onClick = { () => { props.history.push('/') } }> Search </a>
 				<div className='info'>
 					<div className = 'cover'>
-						<img src={props.film.img} />
+						<img src={notebookImg} />
 					</div>
 					<h1>{props.film.title}<span>{props.film.rating}</span></h1>
 					<p className = 'duration'>

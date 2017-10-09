@@ -6,10 +6,7 @@ import FullFilmInfo from './components/fullFilmInfo/fullFilmInfo';
 import Film from './components/film/Film';
 
 class App extends React.Component{
-	componentWillMount() {
-	alert();
-        this.props.history.listen(() => this.forceUpdate());
-    }
+	
 
 	render(){
 		return(

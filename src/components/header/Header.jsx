@@ -5,14 +5,16 @@ class Header extends React.Component{
 	constructor(props, context){
 		super(props, context);
 		this.state = {
+			history: props.history,
 			title: true,
 			director: false
 		};
 		console.log(this.state);
 	}
 
+
     transit(to) {
-        this.props.history.push('search/' + to);
+        this.state.history.push('/search/' + to);
     }
 
 	changeSearchType(arg){

@@ -7,6 +7,7 @@ class Films extends React.Component{
 	constructor(props, context){
 		super(props, context);
 		this.state = {
+			history: props.history,
 			films: [{
 				title: "Notebook",
 				release: 2004,
@@ -40,7 +41,7 @@ class Films extends React.Component{
 
 	sort(){
 		var films = this.state.films.map(item => {
-			return <Film key={item.title} film = {item}/>;
+			return <Film key={item.title} film = {item} history={this.state.history}/>;
 		});
 		return films;
 	}
