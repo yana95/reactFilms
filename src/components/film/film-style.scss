@@ -1,10 +1,10 @@
-.film{
+  .film{
 	margin: 0 14px;
     display: inline-block;
     width: 220px;
 	&::before{
 		content: '';
-		background: url('./images/notebookImg.jpeg');
+		background: url('./../../images/notebookImg.jpeg');
 		width: 220px;
 		height: 300px;
 		display: block;

@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styles from './header-style';
 
 class Header extends React.Component{
-	constructor(props, context){
-		super(props, context);
+	constructor(props){
+		super(props);
 		this.state = {
-			history: props.history,
 			title: true,
 			director: false
 		};
-		console.log(this.state);
 	}
 
-transit(to) {
-        this.state.history.push('/search/' + to);
+	transit(to) {
+        this.props.history.push('/search/' + to);
     }
-	changeSearchType(arg){
+	changeSearchType(arg) {
 		if(!this.state[arg]){
 			this.setState({
 				title: !this.state.title,
@@ -41,10 +40,10 @@ transit(to) {
 						<input type='text' placeholder="Enter film title" id = 'query'/>
 						<div className="type">
 							<p>Search by</p>
-							<button className={title} onClick={this.changeSearchType.bind(this,'title')}>Title</button>
-							<button className={director} onClick={this.changeSearchType.bind(this,'director')}>Director</button>
+							<button className={title} onClick={ () => this.changeSearchType('title') }>Title</button>
+							<button className={director} onClick={ () => this.changeSearchType('director') }>Director</button>
 						</div>
-						<button className="search-btn" onClick={this.search.bind(this)}>Search</button>
+						<button className="search-btn" onClick={ () => this.search() }>Search</button>
 					</div>
 				</div>
 			</div>

@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Film from './../film/Film';
 import notebookImg from './../../images/notebookImg.jpeg';
+import styles from './films-style';
 
 class Films extends React.Component{
-	constructor(props, context){
-		super(props, context);
+	constructor(props){
+		super(props);
 		this.state = {
-			history: props.history,
 			films: [{
 				title: "Notebook",
 				release: 2004,
@@ -41,7 +41,7 @@ class Films extends React.Component{
 
 	sort(){
 		var films = this.state.films.map(item => {
-			return <Film key={item.title} film = {item} history={this.state.history}/>;
+			return <Film key={item.title} film = {item} history={this.props.history}/>;
 		});
 		return films;
 	}
