@@ -5,12 +5,16 @@ class Header extends React.Component{
 	constructor(props, context){
 		super(props, context);
 		this.state = {
+			history: props.history,
 			title: true,
 			director: false
 		};
 		console.log(this.state);
 	}
 
+transit(to) {
+        this.state.history.push('/search/' + to);
+    }
 	changeSearchType(arg){
 		if(!this.state[arg]){
 			this.setState({
@@ -21,7 +25,8 @@ class Header extends React.Component{
 	}
 
 	search(){
-		console.log('search');
+		var query = document.getElementById('query').value;
+		this.transit(query);
 	}
 
 	render(){
@@ -33,7 +38,7 @@ class Header extends React.Component{
 					<div className="search">
 						<h1 className = 'logo' >netflixroulette</h1>
 						<h2>Find your movie</h2>
-						<input type='text' placeholder="Enter film title"/>
+						<input type='text' placeholder="Enter film title" id = 'query'/>
 						<div className="type">
 							<p>Search by</p>
 							<button className={title} onClick={this.changeSearchType.bind(this,'title')}>Title</button>

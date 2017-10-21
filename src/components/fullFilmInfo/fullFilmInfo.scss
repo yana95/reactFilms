@@ -1,7 +1,11 @@
-.wrapper{
-	&.afisha{
+
+.film-info{
+	.wrapper.afisha{
+		background-image: url('./images/header_bg.jpg');
 		height: auto;
 	}
+}
+.wrapper{
 	.full-info{
 		background: rgba(0, 0, 0, 0.87);
 		height: 100%;
@@ -30,6 +34,7 @@
 				margin-right: 30px;
 				img{
 					width: 200px;
+					height: 300px;
 				}
 			}
 			h1{
