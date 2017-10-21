@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Film from './../film/Film';
 import notebookImg from './../../images/notebookImg.jpeg';
+import styles from './films-style';
 
 class Films extends React.Component{
 	constructor(props, context){

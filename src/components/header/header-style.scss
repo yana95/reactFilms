@@ -2,7 +2,7 @@
 	width: 800px;
 	margin: 0 auto;
 	&.afisha{
-		background-image: url('./images/header_bg.jpg');
+		background-image: url('./header_bg.jpg');
 		height: 250px;
 	}
 	.header{
@@ -11,6 +11,13 @@
 	    height: 100%;
 	    padding: 20px;
     	box-sizing: border-box;
+    	
+		.logo{
+			color: #f55263;
+			margin: 0;
+			font-family: Arial;
+			font-size: 20px;
+		}
     	.search{
     		width: 600px;
 			margin: 0 auto;

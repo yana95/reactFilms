@@ -1,20 +1,9 @@
-@import 'components/header/header.scss';
-@import 'components/films/films.scss';
-@import 'components/film/film.scss';
-@import 'components/fullFilmInfo/fullFilmInfo.scss';
-
 html{
 	height: 100%;
 	background: black;
 	body{
 		height: 100%;
 		margin: 0;
-		.logo{
-			color: #f55263;
-			margin: 0;
-			font-family: Arial;
-			font-size: 20px;
-		}
 		.film-page{
 			.director-films{
 				padding: 10px 40px;

@@ -7,8 +7,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
 
     entry: {
-      home: './index',
-      styles: './styles.scss'
+      home: './index'
     },
 
     output: {
@@ -17,7 +16,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx','.scss']
     },
 
     devtool: 'eval',
@@ -36,10 +35,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
-            })
+            use: ['style-loader', 'css-loader', 'sass-loader']
         },
         {
             test: /\.jsx?$/,
@@ -68,10 +64,6 @@ module.exports = {
             title: 'Test',
             hash: true,
             template: './index.html'
-        }),
-        new ExtractTextPlugin({
-            filename: 'style.css',
-            allChunks: true
         })
     ]
 };

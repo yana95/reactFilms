@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styles from './header-style';
 
 class Header extends React.Component{
 	constructor(props, context){

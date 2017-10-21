@@ -1,5 +1,6 @@
 import React from 'react';
 import notebookImg from './../../images/notebookImg.jpeg';
+import styles from './fullFilmInfo-style';
 function FullFilmInfo (props){
 	return (
 		<div className = 'wrapper afisha'>

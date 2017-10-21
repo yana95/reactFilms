@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styles from './film-style';
 
 class Film extends React.Component{
 	constructor(props){

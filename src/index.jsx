@@ -8,6 +8,7 @@ import FullFilmInfo from './components/fullFilmInfo/fullFilmInfo';
 import Film from './components/film/Film';
 import App from './App';
 import * as history from 'history';
+import styles from './styles';
 
 import notebookImg from './images/notebookImg.jpeg';
 
