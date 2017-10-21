@@ -6,13 +6,12 @@ class Film extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			film: this.props.film,
-			history: props.history
+			film: this.props.film
 		}
 	}
 
 	showInfo(title){
-		this.state.history.push('/film/' + title);
+		this.props.history.push('/film/' + title);
 	}
 
 	render(){
