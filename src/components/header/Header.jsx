@@ -12,11 +12,9 @@ class Header extends React.Component{
 		console.log(this.state);
 	}
 
-
-    transit(to) {
+transit(to) {
         this.state.history.push('/search/' + to);
     }
-
 	changeSearchType(arg){
 		if(!this.state[arg]){
 			this.setState({

@@ -25,7 +25,6 @@ class Film extends React.Component{
 			</div>
 		);
 	}
-	
 }
 
 export default Film;
