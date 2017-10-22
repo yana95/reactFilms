@@ -19,6 +19,7 @@ export function receiveFilms(query, json) {
 }
 
 export function fetchFilms(query) {
+	alert();
 	return dispatch => {
 		dispatch(requestFilms(query));
 		return fetch(`http://api.themoviedb.org/3/search/movie?api_key=0a025b55c110607482da0e613fc450d2&query=${query}`)

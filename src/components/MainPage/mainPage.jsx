@@ -8,11 +8,12 @@ const MainPage = (props) => (
   <Header {...props} />
 );
 
-const mapDispatchToProps = (dispatch) => (
+const mapDispatchToProps = (dispatch) => {
+return(
 	{
 		actions: bindActionCreators(Actions, dispatch)
 	}
-);
+)};
 
 export default connect(
   mapDispatchToProps

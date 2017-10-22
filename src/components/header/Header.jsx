@@ -10,6 +10,7 @@ class Header extends React.Component{
 			title: true,
 			director: false
 		};
+		console.log(props);
 	}
 
 	transit(to) {
