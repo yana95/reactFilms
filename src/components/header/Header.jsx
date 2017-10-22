@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import styles from './header-style';
 
+
 class Header extends React.Component{
 	constructor(props){
 		super(props);
@@ -26,6 +27,7 @@ class Header extends React.Component{
 	search(){
 		var query = document.getElementById('query').value;
 		this.transit(query);
+		this.props.actions.fetchFilms(query);
 	}
 
 	render(){
