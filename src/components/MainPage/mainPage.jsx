@@ -1,20 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Header from './../header/Header';
-import * as Actions from './../../actions';
-import { bindActionCreators } from 'redux'
+import Films from './../films/Films';
 
 const MainPage = (props) => (
-  <Header {...props} />
+    <div>
+        <Header {...props} />
+        <Films {...props}/>
+    </div>
 );
 
-const mapDispatchToProps = (dispatch) => {
-return(
-	{
-		actions: bindActionCreators(Actions, dispatch)
-	}
-)};
-
-export default connect(
-  mapDispatchToProps
-)(MainPage);
+export default MainPage;

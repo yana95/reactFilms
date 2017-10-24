@@ -17,11 +17,14 @@ html{
 	}
 	.white{
 		background: white;
+		min-height: 700px;
 	}
 	.content{
 		min-height:100%;
 		position: relative;
-		padding-bottom: 50px;
+		#app{
+			padding-bottom: 50px;
+		}
 		.footer{
 			height:50px;
 			width:100%;
