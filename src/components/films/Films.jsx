@@ -1,32 +1,19 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import Film from './../film/Film';
-import notebookImg from './../../images/notebookImg.jpeg';
 import styles from './films-style';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+    return {
+        films: state.films,
+        sort: {
+            release: true,
+            rating: false
+        }
+    };
+};
 
 class Films extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			films: [{
-				title: "Notebook",
-				release: 2004,
-				type: 'Dramma',
-				rating: 9,
-				img: notebookImg,
-				description: 'Трогательная история любви, прочитанная пожилым мужчиной из старой записной книжки женщине в доме престарелых. Это история отношений юноши и девушки из разных социальных слоев, живших в Южной Каролине. Ной и Элли провели вместе незабываемое лето, пока их не разделили вначале родители, а затем Вторая мировая война.',
-				director: 'bla',
-				cast: 'bla-bla',
-				duration: '154min',
-				year: '1994'
-			}],
-			sort: {
-				release: true,
-				rating: false
-			}
-		};
-		this.sort = this.sort.bind(this);
-	}
 
 	changeSortType(arg){
 		if(!this.state.sort[arg]){
@@ -40,20 +27,28 @@ class Films extends React.Component{
 	}
 
 	sort(){
-		var films = this.state.films.map(item => {
-			return <Film key={item.title} film = {item} history={this.props.history}/>;
+		var films = this.props.films.map(item => {
+			return <Film key={item.id} film = {item} history={this.props.history}/>;
 		});
 		return films;
 	}
 
+	checkResults(){
+        var films = this.sort();
+        if( films.length > 0 ){
+        	return films;
+		}
+		return (<p className="no-found">No films found</p>)
+	}
+
 	render(){
-		var release = (this.state.sort.release)? 'active': '';
-		var rating = (this.state.sort.rating)? 'active': '';
-		var films = this.sort();
+		var release = (this.props.sort.release)? 'active': '';
+		var rating = (this.props.sort.rating)? 'active': '';
+
 		return(
 			<div className="wrapper white">
 				<div className="results-header">
-					<p>{this.state.films.length} movies found</p>
+					<p>{this.props.films.length} movies found</p>
 					<div className="sort">
 						<p>Sort by</p>
 						<ul>
@@ -63,11 +58,11 @@ class Films extends React.Component{
 					</div>
 				</div>
 				<div className="results">
-					{films}
+					{this.checkResults()}
 				</div>
 			</div>
 		);
 	}
 }
 
-export default Films;
+export default connect(mapStateToProps)(Films);

@@ -2,14 +2,11 @@
 	margin: 0 14px;
     display: inline-block;
     width: 220px;
-	&::before{
-		content: '';
-		background: url('./../../images/notebookImg.jpeg');
-		width: 220px;
-		height: 300px;
-		display: block;
-		background-size: cover;
-	}
+	height:400px;
+	  vertical-align: top;
+	img {
+	  width:100%;
+  	}
 	.info{
 		padding: 5px;
 		font-family: Arial;

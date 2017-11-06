@@ -1,30 +1,36 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import styles from './film-style';
+import {fetchFilmCast, filmInfo} from './../../actions';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchFilmCast: (filmId) => dispatch(fetchFilmCast(filmId)),
+        filmInfo: (filmId) => dispatch(filmInfo(filmId)),
+    }
+};
 
 class Film extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			film: this.props.film
-		}
-	}
 
-	showInfo(title){
+	showInfo(title, id){
 		this.props.history.push('/film/' + title);
+		this.props.fetchFilmCast(id);
+		this.props.filmInfo(id);
 	}
 
 	render(){
+		let releaseDate = new Date(Date.parse(this.props.film.release_date));
 		return (
-			<div className = 'film' onClick = { () => this.showInfo(this.state.film.title) } >
+			<div className = 'film' onClick = { () => this.showInfo(this.props.film.title, this.props.film.id) } >
+				<img src={'https://image.tmdb.org/t/p/w500/'+ this.props.film.poster_path} />
 				<div className = 'info'>
-					<span className = 'release'>{this.state.film.release}</span>
-					<p className = 'title'>{this.state.film.title} vgergerg geregher</p>
-					<p className = 'type'>{this.state.film.type}</p>
+					<span className = 'release'>{releaseDate.getFullYear()}</span>
+					<p className = 'title'>{this.props.film.title}</p>
 				</div>
 			</div>
 		);
 	}
 }
 
-export default Film;
+export default connect(null, mapDispatchToProps)(Film);
