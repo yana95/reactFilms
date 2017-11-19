@@ -4,14 +4,13 @@ import {
     RECEIVE_FILM_CAST,
     FILM_ID,
     RESET_SEARCH,
-    RECEIVE_DIRECTOR_FILMS
-  } from './actions';
+    CHANGE_SEARCH,
+    CHANGE_SORT
+  } from './constants';
 
-function films(state = [], action) {
+export function films(state = [], action) {
     switch (action.type) {
         case RECEIVE_FILMS:
-            return action.films;
-        case RECEIVE_DIRECTOR_FILMS:
             return action.films;
         case RESET_SEARCH:
             return [];
@@ -20,16 +19,25 @@ function films(state = [], action) {
     }
 }
 
-function directorFilms(state = [], action){
+export function searchType(state = 'title', action){
     switch (action.type) {
-        case RECEIVE_DIRECTOR_FILMS:
-            return action.films;
+        case CHANGE_SEARCH:
+            return action.title;
         default:
             return state
     }
 }
 
-function filmInfo(state = {
+export function sortType(state = 'release date', action){
+    switch (action.type) {
+        case CHANGE_SORT:
+            return action.title;
+        default:
+            return state
+    }
+}
+
+export function filmInfo(state = {
         casts: '',
         id: 0,
         director: ''
@@ -51,7 +59,7 @@ function filmInfo(state = {
 }
 
 const rootReducer = combineReducers({
-  films, filmInfo, directorFilms
+  films, filmInfo,searchType,sortType
 })
 
 export default rootReducer;

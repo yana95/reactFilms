@@ -7,7 +7,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
 
     entry: {
-      home: './index'
+      home: './index.jsx'
     },
 
     output: {
@@ -43,8 +43,7 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    plugins: ["transform-react-jsx"],
-                    presets: ['env']
+                    plugins: ["transform-react-jsx"]
                 }
             }
         },

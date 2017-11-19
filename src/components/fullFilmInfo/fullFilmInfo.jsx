@@ -2,7 +2,7 @@ import React from 'react';
 import notebookImg from './../../images/notebookImg.jpeg';
 import styles from './fullFilmInfo-style';
 import { connect } from 'react-redux';
-import {resetSearch} from './../../actions';
+import {resetSearch} from './actionsFullFilmInfo';
 
 const mapStateToProps = (state) => {
     return {
@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        resetSearch: (filmId) => dispatch(resetSearch()),
-        fetchDirectorFilms: (director) => dispatch(fetchDirectorFilms(director))
+        resetSearch: (filmId) => dispatch(resetSearch())
     }
 };
 

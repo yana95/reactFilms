@@ -2,39 +2,54 @@ import React from 'react';
 import Film from './../film/Film';
 import styles from './films-style';
 import { connect } from 'react-redux';
+import SortType from './../sortType/SortType';
 
 const mapStateToProps = (state) => {
     return {
         films: state.films,
-        sort: {
-            release: true,
-            rating: false
-        }
+        sortType: state.sortType
     };
 };
 
 class Films extends React.Component{
-
-	changeSortType(arg){
-		if(!this.state.sort[arg]){
-			this.setState({
-				sort: {
-					release: !this.state.sort.release,
-					rating: !this.state.sort.rating
-				}
-			});
-		}
-	}
-
-	sort(){
-		var films = this.props.films.map(item => {
+	getFilms(){
+		var films = this.sort();
+		films = films.map(item => {
 			return <Film key={item.id} film = {item} history={this.props.history}/>;
 		});
 		return films;
 	}
 
+	sort(){
+		var ratingSort = function(a,b){
+			if (a.vote_average > b.vote_average) {
+		    	return 1;
+		  	}
+		  	if (a.vote_average < b.vote_average) {
+		    	return -1;
+		  	}
+		  	return 0;
+		}
+		var releaseSort = function(a,b){
+			if (Date.parse(a.release_date) > Date.parse(b.release_date)) {
+		    	return 1;
+		  	}
+		  	if (Date.parse(a.release_date) < Date.parse(b.release_date)) {
+		    	return -1;
+		  	}
+		  	return 0;
+		}
+		if(this.props.sortType == 'rating'){
+			return this.props.films.sort(ratingSort);
+		} else {
+			return this.props.films.sort(releaseSort);
+		}
+	}
+
+
+
 	checkResults(){
-        var films = this.sort();
+        var films = this.getFilms();
         if( films.length > 0 ){
         	return films;
 		}
@@ -42,20 +57,11 @@ class Films extends React.Component{
 	}
 
 	render(){
-		var release = (this.props.sort.release)? 'active': '';
-		var rating = (this.props.sort.rating)? 'active': '';
-
 		return(
 			<div className="wrapper white">
 				<div className="results-header">
 					<p>{this.props.films.length} movies found</p>
-					<div className="sort">
-						<p>Sort by</p>
-						<ul>
-							<li className={release} onClick={this.changeSortType.bind(this,'release')}>release date</li>
-							<li className={rating} onClick={this.changeSortType.bind(this,'rating')}>rating</li>
-						</ul>
-					</div>
+					<SortType />
 				</div>
 				<div className="results">
 					{this.checkResults()}
